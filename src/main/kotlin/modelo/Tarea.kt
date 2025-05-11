@@ -13,7 +13,7 @@ class Tarea private constructor(descripcion: String): Actividad(descripcion) {
 }
 */
 
-class Tarea(
+abstract class Tarea(
     id: Int,
     descripcion: String,
     var estado: Estado = Estado.ABIERTA,
