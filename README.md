@@ -79,7 +79,7 @@ La aplicación debe seguir una **arquitectura en capas**, separando claramente:
 8. Paquete extra para las Utilidades.
    - Crear el paquete utilidades para agrupar funciones auxiliares.
    - Implementar `Utils`, que debe seguir un **patrón Singleton**.
-   - `Utils` contendrá una propiedad y dos métodos: [Contenido de Utils](Utils.md)
+   - `Utils` contendrá una propiedad y dos métodos: [Contenido de Utils](docs/Utils.md)
      * Utilizar el método `obtenerFechaActual` en la generación automática del valor de la propiedad `fechaCreacion` al crear una instancia de una actividad, es decir, una `Tarea` o `Evento`.
      * Utilizar el método `esFechaValida` para validar la correcta introducción de la `fecha` de un `Evento`.
 
@@ -212,7 +212,7 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 - **(4.g, 7.a, 7.b, 7.c, 7.i, 7.j)**: Explica sobre un fragmento enlazado a tu código cómo has implementado la herencia y/o utilizado interfaces en tu proyecto. ¿Por qué elegiste este enfoque y cómo beneficia a la estructura de tu aplicación? ¿De qué manera has utilizado los principios SOLID para mejorar el diseño de tu proyecto? Mostrando tu código, contesta qué principios has utilizado y qué beneficio has obtenido. Recuerda los que hay, porque seguro que has utilizado más de uno.
 
 ### **Criterio global 6: Diseño de jerarquía de clases**
-- **(7.d, 7.e, 7.f, 7.g)**: Presenta la jerarquía de clases que diseñaste, proporciona obligatoriamente ejemplos específicos de fragmentos de tu código. ¿Cómo probaste y depuraste esta jerarquía para asegurar su correcto funcionamiento? ¿Qué tipo de herencia has utilizado: Especificación, Especialización, Extensión, Construcción? (Ver [Tipo de Herencia](TipoHerencia.md))
+- **(7.d, 7.e, 7.f, 7.g)**: Presenta la jerarquía de clases que diseñaste, proporciona obligatoriamente ejemplos específicos de fragmentos de tu código. ¿Cómo probaste y depuraste esta jerarquía para asegurar su correcto funcionamiento? ¿Qué tipo de herencia has utilizado: Especificación, Especialización, Extensión, Construcción? (Ver [Tipo de Herencia](docs/TipoHerencia.md))
 
 ### **Criterio global 7: Documentado**
 - **(7.h)**: Muestra enlaces a fragmentos de tu código en donde se vean ejemplos de cómo has documentado y comentado tu código. Explica la diferencia entre documentar y comentar. ¿Siempre es necesario documentar una aplicación o es más limpio y claro no hacerlo? ¿Realizarías **comentarios** para todas las líneas de código para que se entendiera mejor? o ¿Qué código comentarías y por qué?
@@ -303,6 +303,7 @@ definidos en mi interfaz que no tienen por que cambiar si cambio por ejemplo a u
 class GestorActividades {
     val salida: Interfaz = Consola()
     val servicio = ActividadService()
+}
 ```
 
 1. [Consola](src/main/kotlin/presentacion/Consola.kt)
