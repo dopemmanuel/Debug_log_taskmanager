@@ -160,7 +160,7 @@ tarea.cambiarEstado(Estado.ABIERTA)      // Inválido (log de warning)
 
 ## 6. Diagrama de Clases (Resumen)
 
-```classDiagram
+```mermaid
     %% Configuración para mejor visualización
     direction TB
     class Actividad {
