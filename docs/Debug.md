@@ -161,6 +161,7 @@ tarea.cambiarEstado(Estado.ABIERTA)      // Inválido (log de warning)
 
 ## 6. Diagrama de Clases (Resumen)
 
+
 ```mermaid
 classDiagram
     %% Configuración para mejor visualización
