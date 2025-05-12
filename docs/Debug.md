@@ -160,26 +160,50 @@ tarea.cambiarEstado(Estado.ABIERTA)      // Inválido (log de warning)
 
 ## 6. Diagrama de Clases (Resumen)
 
-````classDiagram
-
+```classDiagram
+    %% Configuración para mejor visualización
+    direction TB
     class Actividad {
         <<abstract>>
         +id: Int
         +descripcion: String
+        +fechaCreacion: String
         +obtenerDetalle() String
     }
+    
     class Tarea {
         +estado: Estado
-        +cambiarEstado()
+        +subtareas: MutableList~Tarea~
+        +usuarioAsignado: Usuario?
+        +cambiarEstado(Estado)
+        +agregarSubtarea(Tarea)
     }
+    
     class Evento {
         +fecha: String
         +ubicacion: String
+        +crearInstancia()$ Evento
     }
+    
+    class Estado {
+        <<enum>>
+        ABIERTA
+        EN_PROGRESO
+        FINALIZADA
+        +puedeTransicionarA(Estado): Boolean
+    }
+    
+    class Usuario {
+        +id: Int
+        +nombre: String
+        +email: String
+    }
+    
     Actividad <|-- Tarea
     Actividad <|-- Evento
-````
-
+    Tarea *-- Estado
+    Tarea o-- Usuario
+```
 ---
 
 ## 7. Cómo Ejecutar el Proyecto
