@@ -191,13 +191,13 @@ class Consola(
 
     override fun mostrar(x: Any) = println(x)
 
-    override fun mostrarActividades(actividades: List<Actividad>) {
+    override fun mostrarActividades(x: List<Actividad>) {
         println(separator)
-        println("LISTADO DE ACTIVIDADES".padEnd(separator.length - 2) + "Total: ${actividades.size}")
+        println("LISTADO DE ACTIVIDADES".padEnd(separator.length - 2) + "Total: ${x.size}")
         println(separator)
 
-        val eventos = actividades.filterIsInstance<Evento>()
-        val tareas = actividades.filterIsInstance<Tarea>()
+        val eventos = x.filterIsInstance<Evento>()
+        val tareas = x.filterIsInstance<Tarea>()
 
         if (eventos.isNotEmpty()) {
             println("\nEVENTOS (${eventos.size}):")
@@ -212,5 +212,5 @@ class Consola(
         println(separator)
     }
 
-    override fun mostrarInput(prompt: Any) = print(prompt)
+    override fun mostrarInput(x: Any) = print(x)
 }

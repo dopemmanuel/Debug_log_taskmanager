@@ -6,6 +6,9 @@ import es.prog2425.taskmanager.modelo.Estado
 import es.prog2425.taskmanager.modelo.Actividad
 import es.prog2425.taskmanager.modelo.Tarea
 import es.prog2425.taskmanager.modelo.Evento
+import java.util.logging.Logger
+
+private val logger = Logger.getLogger(ActividadService::class.java.name)
 
 class ActividadService(
     private val actividadRepo: ActividadRepository,
@@ -13,14 +16,16 @@ class ActividadService(
 ) {
     // Crea un evento desde crearInstancia y lo agrega al repositorio
     fun crearEvento(descripcion: String, fecha: String, ubicacion: String): Evento {
+        logger.info("Creando evento: $descripcion")
         val evento = Evento.crearInstancia(descripcion, fecha, ubicacion)
         actividadRepo.agregarEvento(evento)
+        logger.info("Evento creado con ID: ${evento.id}")
         return evento
     }
 
     // Crea una tarea desde crearInstancia y lo agrega al repositorio
     fun crearTarea(descripcion: String) {
-        val tarea = Tarea.crearInstancia()
+        val tarea = Tarea.crearInstancia(descripcion)
         actividadRepo.agregarTarea(tarea)
         return tarea
     }

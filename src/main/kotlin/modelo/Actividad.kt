@@ -3,7 +3,7 @@ package es.prog2425.taskmanager.modelo
 import es.prog2425.taskmanager.utils.Utilidades
 
 abstract class Actividad(protected val descripcion: String, descripcion1: String) {
-    protected val id: Int
+    val id: Int
     protected val fechaCreacion: String
 
     init {
