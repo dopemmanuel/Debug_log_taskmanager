@@ -156,6 +156,7 @@ tarea.cambiarEstado(Estado.FINALIZADA)   // Válido
 tarea.cambiarEstado(Estado.ABIERTA)      // Inválido (log de warning)
 ```
 
+
 ---
 
 ## 6. Diagrama de Clases (Resumen)
