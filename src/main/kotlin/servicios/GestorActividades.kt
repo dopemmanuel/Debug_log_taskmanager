@@ -1,12 +1,24 @@
 package es.prog2425.taskmanager.servicios
 
+import es.prog2425.taskmanager.datos.ActividadRepository
+import es.prog2425.taskmanager.datos.ActividadRepositoryImpl
+import es.prog2425.taskmanager.datos.UsuarioRepository
 import es.prog2425.taskmanager.presentacion.Consola
 import es.prog2425.taskmanager.presentacion.Interfaz
 import es.prog2425.taskmanager.utils.Utilidades
 
 class GestorActividades {
-    private val salida: Interfaz = Consola()
-    private val servicio = ActividadService()
+    private val salida: Interfaz
+    private val servicio: ActividadService
+
+    // Constructor que recibe las dependencias necesarias
+    constructor() {
+        // Usa la implementación concreta
+        val actividadRepo = ActividadRepositoryImpl()
+        val usuarioRepo = UsuarioRepository()
+        this.servicio = ActividadService(actividadRepo, usuarioRepo)
+        this.salida = Consola(servicio, UsuarioService(usuarioRepo))
+    }
 
     // Muestra el menu principal
     fun menu() {
@@ -21,18 +33,14 @@ class GestorActividades {
                 // Crear tarea
                 2 -> servicio.crearTarea(pedirDescripcion())
                 // Listar actividades
-                3 -> salida.mostrarActividades(servicio.listarActividades())
+                3 -> salida.mostrarActividades(servicio.listarTodas()) // Cambiado a listarTodas()
                 // Salir
                 4 -> salir = true
             }
         } while(!salir)
     }
 
-    /*
-    * Pide la descripcion de la actividad a crear
-    *
-    * @return Un String con la descripcion de la actividad
-     */
+    // Resto del código permanece igual...
     private fun pedirDescripcion(): String {
         while (true) {
             salida.mostrar("\nIntroduce la descripcion")
@@ -43,11 +51,6 @@ class GestorActividades {
         }
     }
 
-    /*
-    * Pide la fecha de la actividad a crear
-    *
-    * @return Un String con la fecha de la actividad
-     */
     private fun pedirFecha(): String {
         while (true) {
             salida.mostrar("\nIntroduce la fecha con el siguiente formato (dd-MM-yyyy)")
@@ -60,11 +63,6 @@ class GestorActividades {
         }
     }
 
-    /*
-    * Pide la ubicacion de la actividad a crear
-    *
-    * @return Un String con la ubicacion de la actividad
-     */
     private fun pedirUbicacion(): String {
         while (true) {
             salida.mostrar("\nIntroduce la ubicacion")

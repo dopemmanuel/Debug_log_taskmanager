@@ -1,25 +1,11 @@
 package es.prog2425.taskmanager.modelo
 
-/*
-
-class Tarea private constructor(descripcion: String): Actividad(descripcion) {
-    private var estado: Estado = Estado.ABIERTA
-
-    companion object {
-        fun crearInstancia(descripcion: String) = Tarea(descripcion)
-    }
-
-    override fun obtenerDetalle(): String = super.obtenerDetalle() + "Estado: $estado"
-}
-*/
-
-abstract class Tarea(
-    id: Int,
+open class Tarea(
     descripcion: String,
     var estado: Estado = Estado.ABIERTA,
     private val subtareas: MutableList<Tarea> = mutableListOf(),
     var usuarioAsignado: Usuario? = null
-) : Actividad(id.toString(), descripcion) {
+) : Actividad(descripcion, descripcion) {  // Pasamos descripción dos veces como solución temporal
 
     fun cambiarEstado(nuevoEstado: Estado) {
         require(estado.puedeTransicionarA(nuevoEstado)) {
@@ -38,11 +24,20 @@ abstract class Tarea(
     }
 
     fun asignarUsuario(usuario: Usuario) {
-            usuarioAsignado = usuario
+        usuarioAsignado = usuario
+    }
+
+    companion object {
+        fun crearInstancia(descripcion: String): Tarea {
+            return Tarea(descripcion)
+        }
     }
 
     override fun toString(): String {
-        return super.toString() + " - ${usuarioAsignado?.nombre ?: "Sin asignar"}"
+        return "[TAREA] ID: $id - $descripcion - Estado: $estado - ${usuarioAsignado?.nombre ?: "Sin asignar"}"
     }
 
+    override fun obtenerDetalle(): String {
+        return toString()
+    }
 }

@@ -24,14 +24,14 @@ class ActividadService(
     }
 
     // Crea una tarea desde crearInstancia y lo agrega al repositorio
-    fun crearTarea(descripcion: String) {
+    fun crearTarea(descripcion: String): Tarea {
         val tarea = Tarea.crearInstancia(descripcion)
         actividadRepo.agregarTarea(tarea)
         return tarea
     }
 
     // Retorna una lista con todas las actividades
-    fun listarActividades(): List<Actividad> = actividadRepo.obtenerTodos()
+    fun listarTodas(): List<Actividad> = actividadRepo.obtenerTodos()
 
 
     fun cambiarEstadoTarea(idTarea: Int, nuevoEstado: Estado): Tarea {
@@ -63,7 +63,6 @@ class ActividadService(
         return tarea
     }
 
-    // Nuevos métodos útiles
     fun buscarTareaPorId(id: Int): Tarea? {
         return actividadRepo.buscarPorId(id) as? Tarea
     }

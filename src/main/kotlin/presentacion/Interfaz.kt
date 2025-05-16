@@ -15,4 +15,5 @@ interface Interfaz {
     fun mostrar(x: Any)
     fun mostrarActividades(x: List<Actividad>)
     fun mostrarInput(x: Any)
+    fun listarActividades()
 }

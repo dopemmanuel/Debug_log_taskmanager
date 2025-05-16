@@ -5,19 +5,33 @@ import es.prog2425.taskmanager.modelo.Evento
 import es.prog2425.taskmanager.modelo.Tarea
 
 
+// En datos/ActividadRepository.kt
 abstract class ActividadRepository: IActividadRepository {
-    private val listaActividades: MutableList<Actividad> = mutableListOf()
+    protected val listaActividades: MutableList<Actividad> = mutableListOf()
 
-    // Agrega un evento
     override fun agregarEvento(evento: Evento) {
         listaActividades.add(evento)
     }
 
-    // Agrega una tarea
     override fun agregarTarea(tarea: Tarea) {
         listaActividades.add(tarea)
     }
 
-    // Devuelve una lista con todas las actividades
     override fun obtenerActividades(): List<Actividad> = listaActividades
+}
+
+// Nueva clase en el mismo archivo o en uno nuevo
+class ActividadRepositoryImpl : ActividadRepository() {
+    override fun actualizar(actividad: Actividad) {
+        val index = listaActividades.indexOfFirst { it.id == actividad.id }
+        if (index != -1) {
+            listaActividades[index] = actividad
+        }
+    }
+
+    override fun buscarPorId(id: Int): Actividad? {
+        return listaActividades.find { it.id == id }
+    }
+
+    override fun obtenerTodos(): List<Actividad> = listaActividades
 }
