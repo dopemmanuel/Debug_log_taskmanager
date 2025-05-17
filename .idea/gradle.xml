@@ -12,6 +12,7 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/.gradle" />
       </GradleProjectSettings>
     </option>

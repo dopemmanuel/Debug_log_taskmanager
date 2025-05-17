@@ -1,5 +1,6 @@
 package servicios
 
+import es.prog2425.taskmanager.servicios.UsuarioService
 import es.prog2425.taskmanager.datos.UsuarioRepository
 import es.prog2425.taskmanager.modelo.Usuario
 import io.kotest.core.spec.style.DescribeSpec
@@ -8,8 +9,6 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-
-
 
 class UsuarioServiceTest : DescribeSpec({
     val mockUsuarioRepo = mockk<UsuarioRepository>()
