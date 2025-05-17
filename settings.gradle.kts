@@ -10,6 +10,7 @@ plugins {
 rootProject.name = "Debug_log_taskmanager"
 */
 
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
