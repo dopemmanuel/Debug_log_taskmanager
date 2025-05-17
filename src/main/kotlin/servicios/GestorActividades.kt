@@ -231,4 +231,3 @@ class GestorActividades {
     }
 }
 
-class OperationCanceledException : Exception("Operación cancelada por el usuario")
