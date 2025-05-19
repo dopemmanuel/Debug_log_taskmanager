@@ -1,6 +1,6 @@
-package es.prog2425.taskmanager
+package iesra.prog2425
 
-import es.prog2425.taskmanager.servicios.GestorActividades
+import iesra.prog2425.servicios.GestorActividades
 
 fun main() {
     GestorActividades().menu()

@@ -1,11 +1,11 @@
-package es.prog2425.taskmanager.servicios
+package iesra.prog2425.servicios
 
-import es.prog2425.taskmanager.datos.ActividadRepositoryImpl
-import es.prog2425.taskmanager.datos.UsuarioRepository
-import es.prog2425.taskmanager.modelo.Estado
-import es.prog2425.taskmanager.presentacion.Consola
-import es.prog2425.taskmanager.presentacion.Interfaz
-import es.prog2425.taskmanager.utils.Utilidades
+import iesra.prog2425.datos.ActividadRepositoryImpl
+import iesra.prog2425.datos.UsuarioRepository
+import iesra.prog2425.modelo.Estado
+import iesra.prog2425.presentacion.Consola
+import iesra.prog2425.presentacion.Interfaz
+import iesra.prog2425.utils.Utilidades
 
 class GestorActividades {
     private val salida: Interfaz

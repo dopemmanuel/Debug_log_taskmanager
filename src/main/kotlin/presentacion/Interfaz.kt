@@ -1,8 +1,8 @@
-package es.prog2425.taskmanager.presentacion
+package iesra.prog2425.presentacion
 
-import es.prog2425.taskmanager.modelo.Actividad
-import es.prog2425.taskmanager.servicios.ActividadService
-import es.prog2425.taskmanager.servicios.UsuarioService
+import iesra.prog2425.modelo.Actividad
+import iesra.prog2425.servicios.ActividadService
+import iesra.prog2425.servicios.UsuarioService
 
 interface Interfaz {
     val actividadService: ActividadService

@@ -1,7 +1,7 @@
-package es.prog2425.taskmanager.servicios
+package iesra.prog2425.servicios
 
-import es.prog2425.taskmanager.datos.UsuarioRepository
-import es.prog2425.taskmanager.modelo.Usuario
+import iesra.prog2425.datos.UsuarioRepository
+import iesra.prog2425.modelo.Usuario
 
 
 class UsuarioService(private val usuarioRepository: UsuarioRepository) {

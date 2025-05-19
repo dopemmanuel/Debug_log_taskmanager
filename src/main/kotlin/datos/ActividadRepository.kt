@@ -1,8 +1,8 @@
-package es.prog2425.taskmanager.datos
+package iesra.prog2425.datos
 
-import es.prog2425.taskmanager.modelo.Actividad
-import es.prog2425.taskmanager.modelo.Evento
-import es.prog2425.taskmanager.modelo.Tarea
+import iesra.prog2425.modelo.Actividad
+import iesra.prog2425.modelo.Evento
+import iesra.prog2425.modelo.Tarea
 
 
 // En datos/ActividadRepository.kt

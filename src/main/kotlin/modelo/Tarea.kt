@@ -1,4 +1,6 @@
-package es.prog2425.taskmanager.modelo
+package iesra.prog2425.modelo
+
+
 
 open class Tarea(
     descripcion: String,
