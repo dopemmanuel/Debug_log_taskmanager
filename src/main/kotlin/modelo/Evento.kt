@@ -1,6 +1,6 @@
-package es.prog2425.taskmanager.modelo
+package iesra.prog2425.modelo
 
-import es.prog2425.taskmanager.utils.Utilidades
+import iesra.prog2425.utils.Utilidades
 
 class Evento private constructor(
     descripcion: String,

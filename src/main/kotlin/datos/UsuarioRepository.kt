@@ -1,6 +1,6 @@
-package es.prog2425.taskmanager.datos
+package iesra.prog2425.datos
 
-import es.prog2425.taskmanager.modelo.Usuario
+import iesra.prog2425.modelo.Usuario
 
 class UsuarioRepository {
     private val usuarios = mutableListOf<Usuario>()

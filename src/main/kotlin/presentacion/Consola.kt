@@ -1,11 +1,11 @@
-package es.prog2425.taskmanager.presentacion
+package iesra.prog2425.presentacion
 
-import es.prog2425.taskmanager.modelo.Actividad
-import es.prog2425.taskmanager.modelo.Evento
-import es.prog2425.taskmanager.modelo.Tarea
-import es.prog2425.taskmanager.modelo.Estado
-import es.prog2425.taskmanager.servicios.ActividadService
-import es.prog2425.taskmanager.servicios.UsuarioService
+import iesra.prog2425.modelo.Actividad
+import iesra.prog2425.modelo.Evento
+import iesra.prog2425.modelo.Tarea
+import iesra.prog2425.modelo.Estado
+import iesra.prog2425.servicios.ActividadService
+import iesra.prog2425.servicios.UsuarioService
 
 class Consola(
     override val actividadService: ActividadService,
@@ -37,8 +37,9 @@ class Consola(
             4 -> manejarCambioEstado()
             5 -> manejarAsignacionTarea()
             6 -> registrarUsuario()
-            7 -> listarTareasPorUsuario()
-            8 -> listarTareasPorEstado()
+            7 -> listarUsuarios()
+            8 -> listarTareasPorUsuario()
+            9 -> listarTareasPorEstado()
             0 -> return
             else -> mostrar("Opción no válida. Intente nuevamente.")
         }
@@ -121,10 +122,14 @@ class Consola(
             val idUsuario = leerNum().takeIf { it > 0 }
                 ?: throw IllegalArgumentException("ID de usuario debe ser positivo")
 
+            // Corrección: Primero obtener el ID, luego buscar el usuario
+            val usuario = usuarioService.obtenerUsuario(idUsuario)
+                ?: throw IllegalArgumentException("Usuario no encontrado")
+
             val tarea = actividadService.asignarTarea(idTarea, idUsuario)
-            mostrar("✔ Tarea asignada exitosamente:\n${tarea.obtenerDetalle()}")
+            mostrar("✔ Tarea asignada exitosamente a ${usuario.nombre}:\n${tarea.obtenerDetalle()}")
         } catch (e: Exception) {
-            mostrar("✖ Error: ${e.message}")
+            mostrar("✖ Error: ${e.message ?: "Error desconocido"}")
         }
     }
 
@@ -143,6 +148,11 @@ class Consola(
         } catch (e: Exception) {
             mostrar("✖ Error al registrar usuario: ${e.message}")
         }
+    }
+
+    private fun listarUsuarios() {
+        val usuarios = usuarioService.listarUsuarios()
+        usuarios.forEach { println(it) }
     }
 
     private fun listarTareasPorUsuario() {

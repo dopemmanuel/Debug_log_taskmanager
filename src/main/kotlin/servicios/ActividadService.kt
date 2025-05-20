@@ -1,11 +1,11 @@
-package es.prog2425.taskmanager.servicios
+package iesra.prog2425.servicios
 
-import es.prog2425.taskmanager.datos.ActividadRepository
-import es.prog2425.taskmanager.datos.UsuarioRepository
-import es.prog2425.taskmanager.modelo.Estado
-import es.prog2425.taskmanager.modelo.Actividad
-import es.prog2425.taskmanager.modelo.Tarea
-import es.prog2425.taskmanager.modelo.Evento
+import iesra.prog2425.datos.ActividadRepository
+import iesra.prog2425.datos.UsuarioRepository
+import iesra.prog2425.modelo.Estado
+import iesra.prog2425.modelo.Actividad
+import iesra.prog2425.modelo.Tarea
+import iesra.prog2425.modelo.Evento
 import java.util.logging.Logger
 
 private val logger = Logger.getLogger(ActividadService::class.java.name)

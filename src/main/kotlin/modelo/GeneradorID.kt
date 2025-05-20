@@ -1,4 +1,4 @@
-package es.prog2425.taskmanager.modelo
+package iesra.prog2425.modelo
 
 class GeneradorID {
     companion object {
